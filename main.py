@@ -23,12 +23,12 @@ def audio_a_texto():
         audio = r.listen(source)
 
         try:
-            text = r.recognize_google(audio, language="es")
+            texto = r.recognize_google(audio, language="es")
 
             # mostrar en pantalla el texto
-            print("Voz reconocida:", text)
+            print("Voz reconocida:", texto)
 
-            return text
+            return texto
 
         except sr.UnknownValueError:
             print("El micro no funciona")
@@ -44,7 +44,7 @@ def audio_a_texto():
 
 # audio_a_texto()
 
-def respuesta_maquina(text):
+def respuesta_maquina(texto):
 
     # Iniciar el motor de pyttsx3
     engine = pyttsx3.init()
@@ -58,7 +58,7 @@ def respuesta_maquina(text):
 
     engine.setProperty("voice", id1) 
 
-    engine.say(text)
+    engine.say(texto)
 
     engine.runAndWait()
 
